@@ -12,6 +12,7 @@
         <module>image-webapp</module>
         <module>image-api</module>
         <module>image-model</module>
+        <module>image-tool</module>
     </modules>
 
 
