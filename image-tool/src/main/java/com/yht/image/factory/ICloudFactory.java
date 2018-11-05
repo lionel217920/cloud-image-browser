@@ -1,5 +1,8 @@
 package com.yht.image.factory;
 
-public interface ICloudFactory {
+import com.yht.image.ICloud;
+import org.springframework.beans.factory.FactoryBean;
+
+public interface ICloudFactory extends FactoryBean<ICloud> {
 
 }

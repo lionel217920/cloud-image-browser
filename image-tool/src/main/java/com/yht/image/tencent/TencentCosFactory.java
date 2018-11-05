@@ -1,5 +1,7 @@
 package com.yht.image.tencent;
 
-public class TencentCosFactory {
+import com.yht.image.factory.AbstractCloudFactory;
+
+public class TencentCosFactory extends AbstractCloudFactory {
 
 }
