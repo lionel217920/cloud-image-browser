@@ -1,2 +1,9 @@
 server:
   port: 8080
+
+
+cos:
+  accessKey: 111111
+  secrectKey: 111111
+  bucketName: 111111
+  regionName: ap-shanghai

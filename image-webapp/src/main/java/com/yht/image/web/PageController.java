@@ -14,4 +14,9 @@ public class PageController {
         ModelAndView view = new ModelAndView("home");
         return view;
     }
+
+    @GetMapping(value = "/put")
+    public String index() {
+        return null;
+    }
 }
