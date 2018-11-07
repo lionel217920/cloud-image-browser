@@ -10,11 +10,6 @@ public abstract class AbstractCloudFactory implements ICloudFactory {
     }
 
     @Override
-    public ICloud getObject() {
-        return null;
-    }
-
-    @Override
     public Class<?> getObjectType() {
         return ICloud.class;
     }
