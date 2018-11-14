@@ -3,6 +3,7 @@ package com.yht.image.tencent;
 import com.yht.image.ICloud;
 import com.yht.image.factory.AbstractCloudFactory;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.beans.factory.annotation.Value;
 
 public class TencentCosFactory extends AbstractCloudFactory {
 

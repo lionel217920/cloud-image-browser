@@ -34,9 +34,9 @@ public class TencentCos extends AbstractCloud implements ICloud {
 
     @Override
     public String putObject(String key, InputStream inputStream) {
-        String bucketName = "bucket1-1257576234";
         ObjectMetadata objectMetadata = new ObjectMetadata();
         objectMetadata.setContentLength(500);
+        objectMetadata.setContentType("image/jpeg");
         PutObjectResult putObjectResult = cosClient.putObject(bucketName, key, inputStream, objectMetadata);
         String etag = putObjectResult.getETag();
         return etag;
@@ -59,7 +59,7 @@ public class TencentCos extends AbstractCloud implements ICloud {
     }
 
     public void setSecrectKey(String secrectKey) {
-        this.accessKey = secrectKey;
+        this.secrectKey = secrectKey;
     }
 
     public String getSecrectKey() {

@@ -12,5 +12,5 @@ public interface ICloud {
 
     String putObject(String key, InputStream inputStream);
 
-    InputStream getObject();
+    void deleteObject(String key);
 }

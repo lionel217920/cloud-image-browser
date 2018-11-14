@@ -23,7 +23,7 @@ public class AbstractCloud implements ICloud {
     }
 
     @Override
-    public InputStream getObject() {
-        return null;
+    public void deleteObject(String key) {
+
     }
 }
