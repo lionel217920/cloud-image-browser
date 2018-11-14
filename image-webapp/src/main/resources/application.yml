@@ -3,7 +3,7 @@ server:
 
 
 cos:
-  accessKey: 111111
-  secrectKey: 111111
-  bucketName: 111111
+  accessKey: AKIDELLAoHCkmfOxLapmdmldLsEQVQAjsu5K
+  secrectKey: eFgx3yjKsMl6GHOVXRI5qfZJsxmVDus3
+  bucketName: bucket1-1257576234
   regionName: ap-shanghai
