@@ -4,6 +4,6 @@ server:
 
 cos:
   accessKey: AKIDELLAoHCkmfOxLapmdmldLsEQVQAjsu5K
-  secrectKey: eFgx3yjKsMl6GHOVXRI5qfZJsxmVDus3
+  secretKey: eFgx3yjKsMl6GHOVXRI5qfZJsxmVDus3
   bucketName: bucket1-1257576234
   regionName: ap-shanghai
