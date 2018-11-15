@@ -12,7 +12,7 @@ public class CosConfig {
 
     private String accessKey;
 
-    private String secrectKey;
+    private String secretKey;
 
     private String bucketName;
 
@@ -22,7 +22,7 @@ public class CosConfig {
     public ICloudFactory cosFactory() {
         TencentCosFactory factory = new TencentCosFactory();
         factory.setAccessKey(accessKey);
-        factory.setSecrectKey(secrectKey);
+        factory.setSecretKey(secretKey);
         factory.setBucketName(bucketName);
         factory.setRegionName(regionName);
         return factory;
@@ -37,12 +37,12 @@ public class CosConfig {
         this.accessKey = accessKey;
     }
 
-    public String getSecrectKey() {
-        return secrectKey;
+    public String getSecretKey() {
+        return secretKey;
     }
 
-    public void setSecrectKey(String secrectKey) {
-        this.secrectKey = secrectKey;
+    public void setSecretKey(String secretKey) {
+        this.secretKey = secretKey;
     }
 
     public String getBucketName() {

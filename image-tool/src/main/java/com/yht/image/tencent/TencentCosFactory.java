@@ -9,7 +9,7 @@ public class TencentCosFactory extends AbstractCloudFactory {
 
     private String accessKey;
 
-    private String secrectKey;
+    private String secretKey;
 
     private String bucketName;
 
@@ -21,8 +21,8 @@ public class TencentCosFactory extends AbstractCloudFactory {
         if (StringUtils.isNotBlank(accessKey)) {
             tencentCos.setAccessKey(accessKey);
         }
-        if (StringUtils.isNotBlank(secrectKey)) {
-            tencentCos.setSecrectKey(secrectKey);
+        if (StringUtils.isNotBlank(secretKey)) {
+            tencentCos.setSecrectKey(secretKey);
         }
         if (StringUtils.isNotBlank(bucketName)) {
             tencentCos.setBucketName(bucketName);
@@ -42,12 +42,12 @@ public class TencentCosFactory extends AbstractCloudFactory {
         return accessKey;
     }
 
-    public void setSecrectKey(String secrectKey) {
-        this.secrectKey = secrectKey;
+    public void setSecretKey(String secretKey) {
+        this.secretKey = secretKey;
     }
 
-    public String getSecrectKey() {
-        return secrectKey;
+    public String getSecretKey() {
+        return secretKey;
     }
 
     public void setBucketName(String bucketName) {

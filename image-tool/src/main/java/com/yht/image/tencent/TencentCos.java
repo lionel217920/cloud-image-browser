@@ -9,15 +9,20 @@ import com.qcloud.cos.model.PutObjectResult;
 import com.qcloud.cos.region.Region;
 import com.yht.image.ICloud;
 import com.yht.image.common.AbstractCloud;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.annotation.PostConstruct;
+import java.io.IOException;
 import java.io.InputStream;
 
 public class TencentCos extends AbstractCloud implements ICloud {
 
+    private static final Logger logger = LoggerFactory.getLogger(TencentCos.class);
+
     private String accessKey;
 
-    private String secrectKey;
+    private String secretKey;
 
     private String bucketName;
 
@@ -27,7 +32,7 @@ public class TencentCos extends AbstractCloud implements ICloud {
 
     @PostConstruct
     public void init() {
-        COSCredentials cred = new BasicCOSCredentials(accessKey, secrectKey);
+        COSCredentials cred = new BasicCOSCredentials(accessKey, secretKey);
         ClientConfig clientConfig = new ClientConfig(new Region(regionName));
         cosClient = new COSClient(cred, clientConfig);
     }
@@ -35,8 +40,14 @@ public class TencentCos extends AbstractCloud implements ICloud {
     @Override
     public String putObject(String key, InputStream inputStream) {
         ObjectMetadata objectMetadata = new ObjectMetadata();
-        objectMetadata.setContentLength(500);
-        objectMetadata.setContentType("image/jpeg");
+        int length = 0;
+        try {
+            length = inputStream.available();
+        } catch (IOException e) {
+            logger.warn("get inputStream length error >> %s", e.getMessage());
+        }
+        objectMetadata.setContentLength(length);
+        objectMetadata.setContentType("image/png");
         PutObjectResult putObjectResult = cosClient.putObject(bucketName, key, inputStream, objectMetadata);
         String etag = putObjectResult.getETag();
         return etag;
@@ -59,11 +70,11 @@ public class TencentCos extends AbstractCloud implements ICloud {
     }
 
     public void setSecrectKey(String secrectKey) {
-        this.secrectKey = secrectKey;
+        this.secretKey = secrectKey;
     }
 
     public String getSecrectKey() {
-        return secrectKey;
+        return secretKey;
     }
 
     public void setRegionName(String regionName) {
