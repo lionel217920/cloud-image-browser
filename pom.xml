@@ -8,6 +8,9 @@
     <artifactId>yht-parent</artifactId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
+
+    <name>cloud-image-browser</name>
+
     <modules>
         <module>image-webapp</module>
         <module>image-api</module>
@@ -22,20 +25,20 @@
     </parent>
 
     <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <spring-data-releasetrain.version>Fowler-SR2</spring-data-releasetrain.version>
+        <image.version>${project.version}</image.version>
     </properties>
 
-    <dependencies>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-test</artifactId>
-            <scope>test</scope>
-        </dependency>
-    </dependencies>
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.yht</groupId>
+                <artifactId>image-tool</artifactId>
+                <version>1.0-SNAPSHOT</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
     <build>
         <plugins>
@@ -48,6 +51,5 @@
             </plugin>
         </plugins>
     </build>
-
 
 </project>
