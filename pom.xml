@@ -28,6 +28,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <spring-data-releasetrain.version>Fowler-SR2</spring-data-releasetrain.version>
         <image.version>${project.version}</image.version>
+        <java.version>1.8</java.version>
     </properties>
 
     <dependencyManagement>
@@ -45,6 +46,16 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                        <configuration>
+                            <classifier>exec</classifier>
+                        </configuration>
+                    </execution>
+                </executions>
                 <configuration>
                     <mainClass>com.yht.image.Application</mainClass>
                 </configuration>
