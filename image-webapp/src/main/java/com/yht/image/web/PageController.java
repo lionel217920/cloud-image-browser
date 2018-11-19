@@ -10,6 +10,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
 
 @RestController
 @RequestMapping(value = "home")
@@ -40,5 +42,16 @@ public class PageController {
         ModelAndView view = new ModelAndView("home");
         view.addObject("message", "hello");
         return view;
+    }
+
+    @RequestMapping(value = "uploads", method = RequestMethod.POST)
+    public String upload(InputStream inputStream) throws IOException {
+        int length = inputStream.available();
+        if (length > 0) {
+            inputStream.read();
+        }
+
+
+        return null;
     }
 }

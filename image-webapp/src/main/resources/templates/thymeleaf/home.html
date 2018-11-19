@@ -14,7 +14,7 @@
     <link href="/bootstrap/css/bootstrap.min.css" th:href="@{/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
     <link href="/css/album.css" th:href="@{/css/album.css}" rel="stylesheet">
     <link th:href="@{/fineuploader/fine-uploader-gallery.min.css}" rel="stylesheet">
-
+    <script type="text/javascript" th:src="@{/fineuploader/fine-uploader.min.js}"></script>
 
     <script type="text/template" id="qq-template-gallery">
         <div class="qq-uploader-selector qq-uploader qq-gallery" qq-drop-area-text="Drop files here">
@@ -294,27 +294,40 @@
 
 <script th:inline="javascript">
     var galleryUploader = new qq.FineUploader({
+
         element: document.getElementById("fine-uploader-gallery"),
         template: 'qq-template-gallery',
         request: {
-            endpoint: '/server/uploads'
+            endpoint: '/upload/cos'
         },
         thumbnails: {
             placeholders: {
-                waitingPath: '/resources/fineuploader/5.16.2/placeholders/waiting-generic.png',
-                notAvailablePath: '/resources/fineuploader/5.16.2/placeholders/not_available-generic.png'
+                waitingPath: '/fineuploader/placeholders/waiting-generic.png',
+                notAvailablePath: '/fineuploader/placeholders/not_available-generic.png'
             }
         },
         validation: {
             allowedExtensions: ['jpeg', 'jpg', 'gif', 'png'],
             itemLimit: 5,
-            sizeLimit: 51200
+            sizeLimit: 512000
+        },
+        autoUpload: true,
+        debug: true,
+        retry: {
+            enableAuto: true
+        },
+        deleteFile: {
+            enabled: true,
+            endpoint: '/home/delete'
         }
     });
+
+
+    //galleryUploader.uploadStoredFiles();
 </script>
 <script type="text/javascript" th:src="@{/jquery/jquery.min.js}"></script>
 <script type="text/javascript" th:src="@{/js/popper.min.js}"></script>
 <script type="text/javascript" th:src="@{/bootstrap/js/bootstrap.min.js}"></script>
-<script type="text/javascript" th:src="@{/fineuploader/fine-uploader.min.js}"></script>
+
 </body>
 </html>

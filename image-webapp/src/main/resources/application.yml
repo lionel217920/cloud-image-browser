@@ -1,9 +1,13 @@
 server:
   port: 8080
 
-
 cos:
   accessKey: AKIDELLAoHCkmfOxLapmdmldLsEQVQAjsu5K
   secretKey: eFgx3yjKsMl6GHOVXRI5qfZJsxmVDus3
   bucketName: bucket1-1257576234
   regionName: ap-shanghai
+
+#logging:
+#  config: classpath:log4j2-spring.xml
+#  level: INFO
+
