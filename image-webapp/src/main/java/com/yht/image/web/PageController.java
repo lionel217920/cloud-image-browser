@@ -2,10 +2,8 @@ package com.yht.image.web;
 
 import com.yht.image.ICloud;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.io.FileInputStream;
@@ -45,13 +43,8 @@ public class PageController {
     }
 
     @RequestMapping(value = "uploads", method = RequestMethod.POST)
-    public String upload(InputStream inputStream) throws IOException {
-        int length = inputStream.available();
-        if (length > 0) {
-            inputStream.read();
-        }
-
-
+    public String upload(@RequestParam("file") MultipartFile file) throws IOException {
+        file.getBytes();
         return null;
     }
 }
