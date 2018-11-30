@@ -18,6 +18,8 @@ public class CosConfig {
 
     private String regionName;
 
+    private String folderName;
+
     @Bean
     public ICloudFactory cosFactory() {
         TencentCosFactory factory = new TencentCosFactory();
@@ -25,6 +27,7 @@ public class CosConfig {
         factory.setSecretKey(secretKey);
         factory.setBucketName(bucketName);
         factory.setRegionName(regionName);
+        factory.setFolderName(folderName);
         return factory;
     }
 
@@ -59,5 +62,13 @@ public class CosConfig {
 
     public void setRegionName(String regionName) {
         this.regionName = regionName;
+    }
+
+    public String getFolderName() {
+        return folderName;
+    }
+
+    public void setFolderName(String folderName) {
+        this.folderName = folderName;
     }
 }

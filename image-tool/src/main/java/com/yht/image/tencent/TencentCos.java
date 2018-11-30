@@ -9,6 +9,7 @@ import com.qcloud.cos.model.PutObjectResult;
 import com.qcloud.cos.region.Region;
 import com.yht.image.ICloud;
 import com.yht.image.common.AbstractCloud;
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -27,6 +28,8 @@ public class TencentCos extends AbstractCloud implements ICloud {
     private String bucketName;
 
     private String regionName;
+
+    private String folderName;
 
     private COSClient cosClient;
 
@@ -48,6 +51,9 @@ public class TencentCos extends AbstractCloud implements ICloud {
         }
         objectMetadata.setContentLength(length);
         objectMetadata.setContentType("image/png");
+        if (StringUtils.isNotBlank(folderName)) {
+            key = folderName + "/" + key;
+        }
         PutObjectResult putObjectResult = cosClient.putObject(bucketName, key, inputStream, objectMetadata);
         String etag = putObjectResult.getETag();
         return etag;
@@ -69,14 +75,6 @@ public class TencentCos extends AbstractCloud implements ICloud {
         return bucketName;
     }
 
-    public void setSecrectKey(String secrectKey) {
-        this.secretKey = secrectKey;
-    }
-
-    public String getSecrectKey() {
-        return secretKey;
-    }
-
     public void setRegionName(String regionName) {
         this.regionName = regionName;
     }
@@ -84,4 +82,22 @@ public class TencentCos extends AbstractCloud implements ICloud {
     public String getRegionName() {
         return regionName;
     }
+
+    public String getFolderName() {
+        return folderName;
+    }
+
+    public void setFolderName(String folderName) {
+        this.folderName = folderName;
+    }
+
+    public String getSecretKey() {
+        return secretKey;
+    }
+
+    public void setSecretKey(String secretKey) {
+        this.secretKey = secretKey;
+    }
+
+
 }

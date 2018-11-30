@@ -6,6 +6,7 @@ cos:
   secretKey: eFgx3yjKsMl6GHOVXRI5qfZJsxmVDus3
   bucketName: bucket1-1257576234
   regionName: ap-shanghai
+  folderName: blog
 
 #logging:
 #  config: classpath:log4j2-spring.xml

@@ -15,6 +15,8 @@ public class TencentCosFactory extends AbstractCloudFactory {
 
     private String regionName;
 
+    private String folderName;
+
     @Override
     public ICloud getObject() {
         TencentCos tencentCos = new TencentCos();
@@ -22,13 +24,16 @@ public class TencentCosFactory extends AbstractCloudFactory {
             tencentCos.setAccessKey(accessKey);
         }
         if (StringUtils.isNotBlank(secretKey)) {
-            tencentCos.setSecrectKey(secretKey);
+            tencentCos.setSecretKey(secretKey);
         }
         if (StringUtils.isNotBlank(bucketName)) {
             tencentCos.setBucketName(bucketName);
         }
         if (StringUtils.isNotBlank(regionName)) {
             tencentCos.setRegionName(regionName);
+        }
+        if (StringUtils.isNotBlank(folderName)) {
+            tencentCos.setFolderName(folderName);
         }
         tencentCos.init();
         return tencentCos;
@@ -64,5 +69,13 @@ public class TencentCosFactory extends AbstractCloudFactory {
 
     public String getRegionName() {
         return regionName;
+    }
+
+    public String getFolderName() {
+        return folderName;
+    }
+
+    public void setFolderName(String folderName) {
+        this.folderName = folderName;
     }
 }
