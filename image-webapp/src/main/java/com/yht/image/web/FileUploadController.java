@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 import java.io.IOException;
 import java.io.InputStream;
@@ -30,7 +31,7 @@ public class FileUploadController {
 
 
     @PostMapping(value = "cos", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    private FineUploader uploadCos(HttpServletRequest request) throws ServletException, IOException {
+    private void uploadCos(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // uniquely identify the file
         final String path = request.getParameter("destination");
         final String uuid = request.getParameter("qquuid");
@@ -39,7 +40,8 @@ public class FileUploadController {
         Part part = request.getPart("qqfile");
         InputStream inputStream = part.getInputStream();
         cloud.putObject(uuid, inputStream);
+        response.setHeader("Access-Control-Allow-Origin", "http://local.stage.com:8088");
 
-        return FineUploader.ok(String.format(IMAGE_URL, uuid));
+        //return FineUploader.ok(String.format(IMAGE_URL, uuid));
     }
 }

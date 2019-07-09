@@ -1,0 +1,50 @@
+Arguments: 
+  /Users/lionel/.nvm/versions/node/v10.15.3/bin/node /usr/local/Cellar/yarn/1.16.0/libexec/bin/yarn.js install
+
+PATH: 
+  /Users/lionel/.nvm/versions/node/v10.15.3/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/lionel/IdeaProjects/cloud-image-browser/node_modules/.bin
+
+Yarn version: 
+  1.16.0
+
+Node version: 
+  10.15.3
+
+Platform: 
+  darwin x64
+
+Trace: 
+  Error: getaddrinfo ENOTFOUND registry.yarnpkg.com registry.yarnpkg.com:443
+      at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:56:26)
+
+npm manifest: 
+  {
+    "name": "uppy",
+    "version": "1.0.0",
+    "description": "image uploader",
+    "main": "index.js",
+    "repository": "https://www.hualihai.cn",
+    "author": "lionel",
+    "license": "MIT",
+    "private": true,
+    "scripts": {
+      "build": "webpack"
+    },
+    "dependencies": {
+      "@uppy/core": "^1.1.0",
+      "@uppy/dashboard": "^1.1.0",
+      "@uppy/drag-drop": "^1.1.0",
+      "@uppy/dropbox": "^1.1.0",
+      "@uppy/xhr-upload": "^1.1.0",
+      "css-loader": "^2.1.1",
+      "style-loader": "^0.23.1",
+      "webpack": "^4.33.0",
+      "webpack-cli": "^3.3.3"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
