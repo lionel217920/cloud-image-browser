@@ -11,7 +11,7 @@ public class PageController {
 
     @GetMapping
     public ModelAndView home() {
-        return new ModelAndView("index");
+        return new ModelAndView("upload");
     }
 
 }
