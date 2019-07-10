@@ -47,6 +47,14 @@
             <groupId>com.yht</groupId>
             <artifactId>image-tool</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.yht</groupId>
+            <artifactId>image-model</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>commons-fileupload</groupId>
+            <artifactId>commons-fileupload</artifactId>
+        </dependency>
     </dependencies>
 
     <build>

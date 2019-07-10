@@ -1,4 +1,4 @@
-package com.yht.image.vo;
+package com.yht.image.model.vo;
 
 import java.io.Serializable;
 

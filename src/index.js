@@ -27,10 +27,15 @@ const uppy = Uppy({
     .use(XHRUpload, {
         id: 'XHRUpload',
         formData: true,
+        bundle: true,
         endpoint: 'http://local.stage.com:8088/upload/cos',
         method: 'POST'
     })
-    .use(Dropbox, { target: Dashboard, companionUrl: 'https://companion.uppy.io' })
+    .use(Dropbox, { target: Dashboard, companionUrl: 'https://companion.uppy.io' });
+
+uppy.setFileState('XHRUpload', {
+    xhrUpload: { fieldName: 'pic0' }
+})
 
 uppy.on('complete', (result) => {
     console.log('Upload complete! We’ve uploaded these files:', result.successful)
